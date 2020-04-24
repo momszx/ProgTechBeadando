@@ -1,4 +1,4 @@
-package hu.vlngfw.progtech.model;
+package hu.vlngfw.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
