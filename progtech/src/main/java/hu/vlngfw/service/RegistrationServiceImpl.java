@@ -13,7 +13,7 @@ public class RegistrationServiceImpl implements RegistrationService{
 
     @Override
     public void register(User user) throws Exception {
-        if(userRepository.findByUsername(user.getUserName())!=null){
+        if(userRepository.findByUsername(user.getUsername())!=null){
             throw new Exception();
         }
         userRepository.save(user);

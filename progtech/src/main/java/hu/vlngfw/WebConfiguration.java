@@ -2,7 +2,10 @@ package hu.vlngfw;
 
 import hu.vlngfw.dao.BookRepository;
 import hu.vlngfw.dao.UserRepository;
-import hu.vlngfw.service.*;
+import hu.vlngfw.service.BookSearchService;
+import hu.vlngfw.service.BookSearchServiceImpl;
+import hu.vlngfw.service.RegistrationService;
+import hu.vlngfw.service.RegistrationServiceImpl;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 

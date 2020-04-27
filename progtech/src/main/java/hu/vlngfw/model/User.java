@@ -19,7 +19,7 @@ public class User {
     @GeneratedValue
     Long id;
     String email;
-    String userName;
+    String username;
     String password;
     String Fname;
     String Lname;
@@ -28,7 +28,7 @@ public class User {
         return Collections.emptyList();
     }
     public User( String email, String userName, String password, String Fname, String Lname){
-        this.userName=userName;
+        this.username=userName;
         this.password =password;
         this.email=email;
         this.Fname=Fname;
