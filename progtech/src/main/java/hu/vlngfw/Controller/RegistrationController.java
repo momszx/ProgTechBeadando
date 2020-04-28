@@ -14,7 +14,7 @@ public class RegistrationController {
     public RegistrationController(RegistrationService registrationService){
         this.registrationService=registrationService;
     }
-    @RequestMapping(value = {"/registereasd"},method = RequestMethod.POST)
+    @RequestMapping(value = {"/registration"},method = RequestMethod.POST)
     public void register(@RequestBody UserRegistrationRequest userRegistrationRequest) throws Exception {
         String username =userRegistrationRequest.getUsername();
         String password =userRegistrationRequest.getPassword();
@@ -23,7 +23,7 @@ public class RegistrationController {
         String lnaem=userRegistrationRequest.getLname();
         registrationService.register(new User(username,password,email,fname,lnaem));
     }
-    @RequestMapping("/logineasd")
+    @RequestMapping("/login")
     public User login(Principal principal){
         return  registrationService.login(principal.getName());
     }
