@@ -25,8 +25,8 @@ Részlet :
     	....
 
 ### Open/Close
-A kódbeli megvalósitás Controller/* interfészekben 
-Kód részletek
+A kódbeli megvalósitás dao/* interfészekben 
+Kód részlet:
 	
 	public interface UserRepository extends CrudRepository<User,String> {
     	User findByUsername(String username);
@@ -35,6 +35,7 @@ Kód részletek
 
 ### Likson helyettesítés
 A kódbeli megvalósitás Securingweb/securty osztályokban 
+Kód részlet:
 
 	public class UserDetailService implements UserDetailsService {
     	@Autowired
@@ -49,10 +50,19 @@ A kódbeli megvalósitás Securingweb/securty osztályokban
     	}
 	}
 
+### Dependency
+A kódbeli megvalósitás Controller/RegistrationController osztályokban 
+Kód részlet:
+
+	public class RegistrationController {
+    	private RegistrationService registrationService;
+    	public RegistrationController(RegistrationService registrationService){
+        	this.registrationService=registrationService;
+    	}
+    	......
+
 ### Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 # Hasznos olvasni valók
 - Spring boot SOLID elvek https://www.baeldung.com/solid-principles
-
-Vegyünk egyszerű példát Singletonra 
-
+s
 
