@@ -42,8 +42,7 @@ De mi a haszna hogy tároljuk a könyv tartalmát ha nem tudjuk kiíratni ?
 Ígyhát adjunk hozzá egy kiíratási módszert!
 
 public class Book {
-    //...
- 
+
     void printTextToConsole(){
         // A kódunk ami kírja a könyv tartalmát szépen formázva
     }
@@ -62,7 +61,7 @@ public class BookPrinter {
 }
 Fantasztikus. Nemcsak olyan osztályt valósitotunk meg, amely megkönnyíti a  Könyv tartalmányak kiíratását, hanem arra is allkalmas a  BookPrinter  osztályunkat, hogy szöveget más hova is továbbítsunk.
 
-###Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+### Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 # Hasznos olvasni valók
 - Spring boot SOLID elvek https://www.baeldung.com/solid-principles
 
