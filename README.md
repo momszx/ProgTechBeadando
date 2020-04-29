@@ -7,58 +7,54 @@ A teknológia amin majd alapúl a webes oldalt az a Spring Boot lesz . A spring 
 ## SOLID elvek 
 
 ### Vegyünk egyszerű példát Singletonra 
-public class Book {
-    private String name;
-    private String author;
-    private String text;
-	/*
-	Constructor
-	Get
-	Set
-	*/
-}
-
+	public class Book {
+    	private String name;
+    	private String author;
+    	private String text;
+		/*
+		Constructor
+		Get
+		Set
+		*/
+	}
 Itt tároljuk a könyv példányunk nevét ,szerzőjét és tartalmát.
 Irjunk pár módszert  aszöveg lekérdezésére.
 
-public class Book {
-    private String name;
-    private String author;
-    private String text;
-	/*
-	Constructor
-	Get
-	Set
-	*/
-    public String replaceWordInText(String word){
-        return text.replaceAll(word, text);
-    }
-    public boolean isWordInText(String word){
-        return text.contains(word);
-    }
-}
+	public class Book {
+    	private String name;
+    	private String author;
+    	private String text;
+		/*
+		Constructor
+		Get
+		Set
+		*/
+    	public String replaceWordInText(String word){
+        	return text.replaceAll(word, text);
+    	}
+    	public boolean isWordInText(String word){
+        	return text.contains(word);
+    	}
+	}
 Most a Book  osztályunk jól működik, és annyi könyvet tárolhatunk, amennyit csak akarunk alkalmazásunkban. 
 De mi a haszna hogy tároljuk a könyv tartalmát ha nem tudjuk kiíratni ?
 Ígyhát adjunk hozzá egy kiíratási módszert!
 
-public class Book {
-
-    void printTextToConsole(){
-        // A kódunk ami kírja a könyv tartalmát szépen formázva
-    }
-}
+	public class Book {
+    	void printTextToConsole(){
+        	// A kódunk ami kírja a könyv tartalmát szépen formázva
+    	}
+	}
 Ez a modszer viszont meg sérti a Singletone elvét. Ezért a kiíratást egy külön osztályban kellene meg valósitanunk , ami csak a szöveg kiíratással foglakozik.
 
-public class BookPrinter {
- 
-    void printTextToConsole(String text){
-        // A kódunk ami kírja a könyv tartalmát szépen formázva
-    }
- 
-    void printTextToAnotherMedia(String text){
-    	// A kódunk ami valahova máshova kírja a könyv tartalmát 
-    }
-}
+	public class BookPrinter {
+    	void printTextToConsole(String text){
+        	// A kódunk ami kírja a könyv tartalmát szépen formázva
+    	}
+    	void printTextToAnotherMedia(String text){
+    		// A kódunk ami valahova máshova kírja a könyv tartalmát 
+    	}
+	}
 Fantasztikus. Nemcsak olyan osztályt valósitotunk meg, amely megkönnyíti a  Könyv tartalmányak kiíratását, hanem arra is allkalmas a  BookPrinter  osztályunkat, hogy szöveget más hova is továbbítsunk.
 
 ### Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
