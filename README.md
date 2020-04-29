@@ -68,7 +68,7 @@ Teljes értékű, és még egy hangerőszabályzóval is rendelkezik:
 		private String make;
 		private String model;
 	private int volume;
-    /*
+    	/*
 		Constructor
 		Get
 		Set
@@ -80,7 +80,7 @@ Helyette inkább alkalmazuk a nyitott zárt elvet és egyszerűen kiterjesztjük
 
 	public class SuperCoolGuitarWithFlames extends Guitar {
     	private String flameColor;
-    /*
+   		/*
 		Constructor
 		Get
 		Set
@@ -88,6 +88,48 @@ Helyette inkább alkalmazuk a nyitott zárt elvet és egyszerűen kiterjesztjük
 	}
 Kiterjesztve a  Guitar  osztály biztosak lehetünk abban, hogy a már meglévő alkalmazás nem fogja érinteni.
 
+
+### Likson Helyetesítés
+A listánk következő a Liskov-helyettesítés, amely vitathatatlanul az 5 alapelv közül a legösszetettebb. Egyszerűen fogalmazva: ha az A osztály a B osztály altípusa , akkor képesnek kell lennünk arra, hogy a B-t A-val helyettesítsük  ,  anélkül hogy megzavarnánk programunk viselkedését.
+Ugorjunk a kódra hogy könyebb legyen megírteni az elv működését:
+
+	public interface Car {
+    	void turnOnEngine();
+    	void accelerate();
+	}
+Fent meghatározunk egy egyszerű  autó  interfacet néhány módszerrel, amelyeket minden autónak képesnek kell lennie teljesíteni - beindítani a motort és gyorsulni.
+Implementáljuk 
+
+	public class MotorCar implements Car { 
+    	private Engine engine; 
+    	/*
+		Constructor
+		Get
+		Set
+		*/
+    	public void turnOnEngine() {
+        	//a motort elindítjuk
+        	engine.on();
+    	}
+    	public void accelerate() {
+        	//gyorsolunk
+        	engine.powerOn(1000);
+    	}
+	}
+Ahogy a kódunk leírja, van egy motorunk, amelyet elindíthatunk, és megnövelhetjük a teljesítményét. De várjon meg 2025-öt és Elen Mask nagoyn unatkozot.
+
+Az elektromos autók korszakában élünk:
+
+	public class ElectricCar implements Car { 
+    	public void turnOnEngine() {
+        	throw new AssertionError("I don't have an engine!");
+    	}
+    	public void accelerate() {
+       		//őrülten gyorsolunk
+    	}
+	}
+Ha motor nélkül dobunk egy autót a piacra, akkor megváltoztatjuk programunk viselkedését. Ez Liskov-helyettesítés nyilvánvaló megsértése, és egy kicsit nehezebb kijavítani, mint az előző 2 alapelvünknél .
+Az egyik lehetséges megoldás az lenne, hogy dolgozzuk át a modellt interfacét, amelyek figyelembe veszi a motor nélküli autokat .
 
 ### Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 # Hasznos olvasni valók
