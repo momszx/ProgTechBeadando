@@ -24,6 +24,8 @@ Részlet :
     	boolean admin;
     	....
 
+Itt kapcsolodik az adatbázishoz a spring boot 
+
 ### Open/Close
 A kódbeli megvalósitás dao/* interfészekben 
 Kód részlet:
@@ -32,6 +34,7 @@ Kód részlet:
     	User findByUsername(String username);
 	}
 
+Kibővitjuk a CrudRepository egy findbyusername el ami alapján majd ugye meg tudjuk keresni a felhasználót a neve alapján
 
 ### Likson helyettesítés
 A kódbeli megvalósitás Securingweb/securty osztályokban 
@@ -60,6 +63,9 @@ Kód részlet:
         	this.registrationService=registrationService;
     	}
     	......
+
+Itt létrehozunk egy privát registrationService amit csak az osztályon belül tudunk kezelni és ennek létrehozunkegy konstruktort amin keresztül tudjuk állítani .
+
 
 ### Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 # Hasznos olvasni valók

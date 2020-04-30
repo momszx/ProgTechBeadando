@@ -14,7 +14,7 @@ public class RegistrationController {
     public RegistrationController(RegistrationService registrationService){
         this.registrationService=registrationService;
     }
-    @RequestMapping(value = {"/reg"},method = RequestMethod.POST)
+    @RequestMapping(value = {"/rega"},method = RequestMethod.POST)
     public void register(@RequestBody UserRegistrationRequest userRegistrationRequest) throws Exception {
         String username =userRegistrationRequest.getUsername();
         String password =userRegistrationRequest.getPassword();

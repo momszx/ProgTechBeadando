@@ -34,22 +34,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .antMatcher("/reg")
+
                 .authorizeRequests()
-                .antMatchers("/", "/home","/reg","/registration").permitAll()
+                .antMatchers( "/home").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .loginPage("/login").permitAll()
                 .and()
-                .logout()
-                .permitAll();
+                .logout().permitAll();
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/","/reg");
+        web.ignoring().antMatchers("/","/reg","/rega");
     }
     @Bean
     UserDetailsService UserDetailsService(){
