@@ -14,14 +14,14 @@ public class RegistrationController {
     public RegistrationController(RegistrationService registrationService){
         this.registrationService=registrationService;
     }
-    @RequestMapping(value = {"/registration"},method = RequestMethod.POST)
+    @RequestMapping(value = {"/reg"},method = RequestMethod.POST)
     public void register(@RequestBody UserRegistrationRequest userRegistrationRequest) throws Exception {
         String username =userRegistrationRequest.getUsername();
         String password =userRegistrationRequest.getPassword();
         String email =userRegistrationRequest.getEmail();
         String fname =userRegistrationRequest.getFname();
-        String lnaem=userRegistrationRequest.getLname();
-        registrationService.register(new User(username,password,email,fname,lnaem));
+        String lname=userRegistrationRequest.getLname();
+        registrationService.register(new User(username,password,email,fname,lname));
     }
     @RequestMapping("/login")
     public User login(Principal principal){
