@@ -66,6 +66,18 @@ Kód részlet:
 
 Itt létrehozunk egy privát registrationService amit csak az osztályon belül tudunk kezelni és ennek létrehozunkegy konstruktort amin keresztül tudjuk állítani .
 
+## Unit tesztek 
+Az összes unit teszt a src/main/java/hu.vlngfw.Testing-ben található. 
+
+### AppTest 
+
+	@SpringBootTest
+	public class AppTest {
+	    @Test
+	    public void contextLoads(){
+    		}
+	}
+
 
 ### Teljes dokumentációja a Spring Bootnak itt érhető el https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 # Hasznos olvasni valók
