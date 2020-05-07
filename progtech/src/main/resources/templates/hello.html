@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <head>
-    <title>Hello World!</title>
+    <title>Sikeres bejelentkezés</title>
 </head>
 <body>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
-<p id="demo"></p>
+<p></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Owner</th>
+            <th>Name</th>
+            <th>Puvlisher</th>
+            <th>ISBN</th>
+        </tr>
+    </thead>
+    <tbody id="data"></tbody>
+</table>
 <script>
-    var obj, dbParam, xmlhttp, myObj, x, txt = "";
-    obj = { table: "customers", limit: 20 };
-    dbParam = JSON.stringify(obj);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
-            txt += "<table border='1'>"
-            for (x in myObj) {
-                txt += "<tr><td>" + myObj[x].name + "</td></tr>";
-            }
-            txt += "</table>"
-            document.getElementById("demo").innerHTML = txt;
+    fetch("http://localhost:8080/book/all").then(
+        res=>{
+            res.json().then(
+                data=>{
+                    console.log(data);
+                    if(data.length>0){
+                        var  temp ="";
+                        data.forEach((u)=>{
+                            temp +="<tr>";
+                            temp +="<td>"+u.id+"</td>"
+                            temp +="<td>"+u.owner+"</td>"
+                            temp +="<td>"+u.name+"</td>"
+                            temp +="<td>"+u.publisher+"</td>"
+                            temp +="<td>"+u.isbn+"</td></tr>"
+                        })
+                        document.getElementById("data").innerHTML =temp;
+                    }
+                }
+            )
         }
-    };
-    xmlhttp.open("POST", "json_demo_db_post.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("x=" + dbParam);
+    )
+
 </script>
 </body>
 </html>
