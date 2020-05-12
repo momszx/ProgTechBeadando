@@ -2,6 +2,7 @@ package hu.vlngfw.Controller;
 
 import hu.vlngfw.model.User;
 import hu.vlngfw.service.RegistrationService;
+import hu.vlngfw.service.RegistrationServiceImpl;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.security.Principal;
 
 public class RegistrationController {
-    private RegistrationService registrationService;
+    private RegistrationServiceImpl registrationService;
 
-    public RegistrationController(RegistrationService registrationService){
+    public RegistrationController(RegistrationServiceImpl registrationService){
         this.registrationService=registrationService;
     }
     @RequestMapping(value = {"/rega"},method = RequestMethod.POST)

@@ -16,15 +16,20 @@
         div{
             text-align: center;
         }
+        .logout{
+            float: left;
+        }
     </style>
     <title>Sikeres bejelentkezés</title>
 </head>
 <body>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 <form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
+    <div align="left">
+    <input style="float: left;" class="btn btn-danger" type="submit" value="Sign Out"/>
+    </div>
 </form>
-<p></p>
+<p class="btn btn-success" style="  text-decoration: none;"> <a th:href="@{/addBook}">Add Book</a></p>
 <table class="table">
     <thead>
         <tr>
