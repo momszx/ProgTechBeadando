@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml"
+>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        p{
+        p {
             text-align: center;
         }
-        h1{
+
+        h1 {
             text-align: center;
         }
-        div{
+
+        div {
             text-align: center;
         }
     </style>
@@ -19,52 +22,45 @@
 </head>
 <body>
 <h1>Registration</h1>
-
-<p>
-    <!-- Making a text input -->
-    <input type="text" id="name" placeholder="Your name">
-    <input type="email" id="email" placeholder="Email">
-
-    <!-- Button to send data -->
-    <button onclick="sendJSON()">Send JSON</button>
-
-    <!-- For printing result from server -->
-<p class="result" style="color:green"></p>
-
-</p>
-
+    <p>
+    <input id="name" placeholder="Your Username" type="text">
+    <p>
+    <input id="email" placeholder="Email" type="email">
+    <p>
+    <input id="password" placeholder="Your password" type="password">
+    <p>
+    <input id="Fname" placeholder="First name" type="text">
+    <p>
+    <input id="Lname" placeholder="Last name" type="text">
+    <p>
+    <button onclick="sendJSON()">Registration</button>
+    <p class="result" style="color:green"></p>
+    </p>
 </body>
 <script>
-    function sendJSON(){
-
+    function sendJSON() {
         let result = document.querySelector('.result');
         let name = document.querySelector('#name');
         let email = document.querySelector('#email');
-
-        // Creating a XHR object
+        let password = document.querySelector('#password');
+        let Fname = document.querySelector('#Fname');
+        let Lname = document.querySelector('#Lname');
         let xhr = new XMLHttpRequest();
         let url = "/reg";
-
-        // open a connection
         xhr.open("POST", url, true);
-
-        // Set the request header i.e. which type of content you are sending
         xhr.setRequestHeader("Content-Type", "application/json");
-
-        // Create a state change callback
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-
-                // Print received data from server
                 result.innerHTML = this.responseText;
-
             }
         };
-
-        // Converting JSON data to string
-        var data = JSON.stringify({ "username": "Jhon", "password":"asd","email": "asd@asd.com","fname":"Havas","lname":"Jhon" });
-
-        // Sending data with the request
+        var data = JSON.stringify({
+            "username": name,
+            "password": password,
+            "email": email,
+            "fname": Fname,
+            "lname": Lname
+        });
         xhr.send(data);
     }
 </script>
